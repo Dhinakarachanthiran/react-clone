@@ -1,0 +1,622 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #e0e4fd;
+  letter-spacing: normal;
+}
+ 
+/* Header */
+.header {
+  padding: 16px;
+  border-bottom: 1px solid #e1e4e8;
+ 
+}
+/* Bulb Icon styling (optional) */
+.bulb-icon {
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+ 
+.bulb-icon img {
+  width: 20px;
+  height: 20px;
+}
+ 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+ 
+.breadcrumb span:last-child {
+  color: #333;
+  font-size: 35px;
+  font-weight: 700;
+}
+ 
+.timesheet-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  /* padding: 20px; */
+  background-color: #fff;
+}
+ 
+/* Timesheet Header */
+.timesheet-header {
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e1e4e8;
+}
+ 
+.timesheet-header h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  padding-left: 15px;
+}
+ 
+#head{
+  margin-left: 20px;
+  margin-right: 15px;
+}
+ 
+#timeoff{
+  margin-left: 600px;
+  margin-right: 20px;
+  background-color: #ced0d1;
+  color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ 
+.timesheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  table-layout: fixed;
+}
+
+.timesheet-table thead th,
+.timesheet-table tfoot td {
+  position: sticky; /* Keeps thead and tfoot fixed */
+  z-index: 2;
+  text-align: center;
+  padding-left: 0%;
+  background-color: #EDF2F7;
+}
+
+.timesheet-table thead th {
+  top: 0; 
+}
+
+.timesheet-table tfoot td {
+  bottom: 0; 
+}
+ 
+.timesheet-table tbody {
+  display: block;
+  max-height: 350px; /* Adjust the height of the scrollable body as needed */
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+.timesheet-table thead,
+.timesheet-table tfoot {
+  display: table; /* Retain table layout for thead and tfoot */
+  width: 100%; /* Match the width of tbody */
+  table-layout: fixed; 
+}
+
+.timesheet-table tbody tr {
+  display: table; /* Ensures rows behave like table rows within tbody */
+  width: 100%; /* Ensure consistent row width */
+  table-layout: fixed;
+}
+
+.timesheet-table tbody tr:hover {
+  background-color: #F7F9FD;
+  cursor: pointer;
+}
+ 
+#col1{
+  position: relative;
+}
+ 
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-right: 1px solid #ddd; */
+ 
+}
+ 
+.task-name {
+  flex-grow: 1;
+  text-align: left;
+}
+ 
+.timesheet-table td {
+  /* border-bottom: 1px solid #ddd; */
+  border-right: 1px solid #ddd;
+  padding: 3px;
+  text-align: center;
+  font-size: 12px;
+}
+ 
+.timesheet-table th {
+  border-bottom: 1px solid #ddd;
+  color: #0e0d0d;
+  margin-bottom: 10px;
+  padding: 3px;
+  text-align: center;
+  font-size: 12px;
+}
+ 
+.timesheet-table td input[type="number"] {
+  width: 50px;
+  padding: 2px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+}
+ 
+.timesheet-table td button {
+  background: #f7f9fd; /* Light gray background */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+ 
+.timesheet-table td button:hover {
+  background: #e9ecef;
+}
+ 
+tfoot td {
+  font-weight: bold;
+  background-color: #ddd;
+}
+ 
+tfoot td button {
+  color: #fff;
+  padding: 3px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ 
+/* Task Addition Section */
+.task-addition {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+ 
+.task-addition input[type="text"] {
+  padding: 5px;
+  font-size: 12px;
+  width: 250px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+ 
+.task-addition input[type="text"]:focus {
+  border-color: #007bff;
+}
+ 
+.task-addition button {
+  background-color: #ced0d1;
+  color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ 
+/* Additional Styling for Table and Toast */
+.timesheet-table th, .timesheet-table td {
+  padding: 2px 5px;
+}
+ 
+#savedraft {
+  background-color: #ced0d1;
+  color: black;
+  font-weight: 600;
+  padding: 5px 15px;
+  font-size: 12px;
+}
+ 
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+ 
+.toast.success {
+  background-color: #28a745;
+  color: white;
+}
+ 
+.toast.error {
+  background-color: #dc3545;  /* Red background for error */
+  color: white;
+}
+ 
+.form-wrapper {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+ 
+.save-btn {
+  background-color: #f7f9fd;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  width: 100%;
+  border-radius: 5px;
+}
+ 
+.save-btn:hover {
+  background-color: #408bcc;
+}
+ 
+.timeoff-btn {
+  background-color: #007bff !important;
+  color: white !important;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+ 
+.timeoff-btn:hover {
+  background-color: #0056b3 !important;
+}
+ 
+.modal-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+ 
+.modal-header {
+  background-color: #50a5f1;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px;
+}
+ 
+.close-btn {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  width: 100%;
+  border-radius: 5px;
+}
+ 
+.progress-bar {
+  display: flex;
+  position: relative;
+  height: 3px;
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+ 
+.progress-bar .progress {
+  height: 100%;
+}
+ 
+.progress-bar .progress.overtime {
+  /* height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; */
+  margin-left: 0;
+  z-index: 1;
+}
+ 
+.progress-bar:hover::after {
+  content: attr(title);
+  position: absolute;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  top: -25px;
+  white-space: nowrap;
+  font-size: 12px;
+  pointer-events: none;
+}
+ 
+.progress {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease-in-out;
+}
+ 
+.disabled-input {
+  background-color: #F7F9FD;
+  opacity: 0.5;
+}
+ 
+.modal-overlay-timeoff {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+ 
+.modal-content-timeoff {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+
+  
+
+}
+ 
+.modal-content-timeoff h2 {
+  font-size: 20px;
+  font-weight: 600;
+  /* margin-bottom: 20px; */
+  color: #333;
+  border-bottom: none solid #ddd;
+  padding-bottom: 10px;
+}
+ 
+.modal-content-timeoff label {
+  display: block;
+  margin-bottom: 10px;
+  /* font-weight: bold; */
+  font-size: 14px;
+  color: #1a202c;
+}
+ 
+.modal-content-timeoff input[type="date"],
+.modal-content-timeoff select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+ 
+#timeoff-hours{
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #1a202c;
+}
+ 
+#timeoff-hours input[type="number"]
+{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+ 
+.timeoffdate {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+ 
+.timeoffdate label {
+  flex: 1;
+}
+ 
+.modal-actions {
+  display: block;
+  justify-content: space-between;
+  margin-left: 170px;
+}
+ 
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+ 
+.modal-actions button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+ 
+.modal-actions button:last-child {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc;
+}
+ 
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+ 
+.timeoff-icon {
+  margin-left: 5px;
+  color: #ff6347;
+  cursor: pointer;
+}
+ 
+.progress-bar .progress.regular {
+  transition: width 0.3s ease;
+}
+ 
+ 
+ 
+/* Animation */
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
+ 
+/* Bulb Icon styling (optional) */
+.bulb-icon {
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+ 
+.bulb-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #00A6ED;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.task-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.task-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #000;
+}
